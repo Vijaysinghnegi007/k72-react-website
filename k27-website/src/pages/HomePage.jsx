@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useRef } from "react";
+import Video from "../components/home/Video";
+import HomeHeroText from "../components/home/HomeHeroText";
+import HomeBottomText from "../components/home/HomeBottomText";
 
-const HomePage = () => {
-  return <div>HomePage</div>;
+const Home = () => {
+  return (
+    <>
+      <div className="h-screen w-screen fixed">
+        <Video />
+      </div>
+      <div className="h-screen w-screen relative pb-5 overflow-hidden flex flex-col justify-between">
+        <HomeHeroText />
+        <HomeBottomText />
+      </div>
+    </>
+  );
 };
 
-export default HomePage;
+export default Home;
