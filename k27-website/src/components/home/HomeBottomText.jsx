@@ -11,7 +11,7 @@ const HomeBottomText = () => {
           Projects
         </Link>
         <Link
-          to="/about"
+          to="/agence"
           className="text-[6vw] border-2 border-white rounded-full leading-[1.1] uppercase px-7 hover:text-[#d3fd50]  hover:border-[#d3fd50]"
         >
           Agence
