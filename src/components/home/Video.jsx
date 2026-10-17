@@ -6,8 +6,12 @@ const Video = () => {
         autoPlay
         loop
         muted
-        src="../../../public/video.mp4"
-      ></video>
+        playsInline
+        preload="auto"
+        aria-hidden="true"
+      >
+        <source src="/video.mp4" type="video/mp4" />
+      </video>
     </div>
   );
 };
