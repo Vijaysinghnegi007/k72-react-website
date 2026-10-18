@@ -1,8 +1,10 @@
+import { Link } from "react-router-dom";
+import Video from "../home/Video";
 const menuItems = [
-  { title: "Projects", subtitle: "to see everything" },
-  { title: "Agency", subtitle: "to see our work" },
-  { title: "Contact", subtitle: "to get in touch" },
-  { title: "Blog", subtitle: "to read our thoughts" },
+  { title: "Projects", subtitle: "to see everything", link: "/projects" },
+  { title: "Agency", subtitle: "to see our work", link: "/agence" },
+  { title: "Contact", subtitle: "to get in touch", link: "/contact" },
+  { title: "Blog", subtitle: "to read our thoughts", link: "/blog" },
 ];
 
 const menubottomItems = [
@@ -23,9 +25,9 @@ const HeaderContent = () => {
     <nav className="flex flex-col h-dvh w-full items-center justify-center bg-black text-white">
       <div className="w-full">
         {menuItems.map((item) => (
-          <a
+          <Link
             key={item.title}
-            href="#"
+            to={item.link}
             className="group relative block overflow-hidden border-b border-white/20 py-3"
           >
             {/* Original menu title */}
@@ -39,20 +41,26 @@ const HeaderContent = () => {
             <div className="absolute inset-0 origin-top scale-y-0 bg-[#d3fd50] transition-transform duration-500 ease-in-out group-hover:scale-y-100" />
 
             {/* Moving marquee */}
+            {/* Moving marquee */}
             <div className="pointer-events-none absolute inset-0 z-20 flex items-center overflow-hidden bg-[#d3fd50] text-black opacity-0 transition-opacity duration-200 group-hover:opacity-100">
-              <div className="flex w-max shrink-0 animate-marquee items-center whitespace-nowrap">
-                {Array.from({ length: 8 }).map((_, index) => (
-                  <span
+              <div className="flex justify-evenly w-max shrink-0 animate-marquee items-center whitespace-nowrap">
+                {Array.from({ length: 10 }).map((_, index) => (
+                  <div
                     key={index}
-                    className="mx-6 text-5xl font-medium uppercase tracking-tight md:text-7xl"
+                    className="mx-6 flex shrink-0 items-center gap-6"
                   >
-                    {item.subtitle}
-                    <span className="ml-12">*</span>
-                  </span>
+                    <span className="text-5xl font-medium uppercase tracking-tight md:text-7xl">
+                      {item.subtitle}
+                    </span>
+
+                    <div className="h-10 w-20 shrink-0 overflow-hidden rounded-full md:h-[7vw] md:w-[16vw]">
+                      <Video />
+                    </div>
+                  </div>
                 ))}
               </div>
             </div>
-          </a>
+          </Link>
         ))}
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 px-6 font-bold">
@@ -61,26 +69,26 @@ const HeaderContent = () => {
           </span>
           <div className="flex justify-between items-center gap-2 md:gap-6 font-bold pt-8">
             {menubottomItems.map((item) => (
-              <a
+              <Link
                 key={item.title}
-                href={item.link}
+                to={item.link}
                 className="hover:text-[#d3fd50]"
               >
                 <span className="text-xs font-medium uppercase tracking-tight ">
                   {item.title}
                 </span>
-              </a>
+              </Link>
             ))}
           </div>
           <div className="flex justify-between items-center gap-6 font-bold pt-8">
             {socialLinks.map((link) => (
-              <a
+              <Link
                 key={link.title}
-                href={link.link}
+                to={link.link}
                 className=" text-2xl md:text-3xl font-medium uppercase tracking-tight border-2 border-white rounded-full px-3 -py-4 hover:text-[#d3fd50] hover:border-[#d3fd50]"
               >
                 <span className="">{link.title}</span>
-              </a>
+              </Link>
             ))}
           </div>
         </div>
