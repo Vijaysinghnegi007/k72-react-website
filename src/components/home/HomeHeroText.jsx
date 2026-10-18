@@ -1,24 +1,32 @@
-import React from "react";
 import Video from "./Video";
 
-const HomeHeroText = () => {
-  return (
-    <div className="font-[font1]  mt-72 lg:mt-0 pt-5 text-center text-white">
-      <div className="lg:text-[9.5vw] text-[12vw] justify-center flex items-center uppercase lg:leading-[8vw] leading-[10vw]">
-        L'étincelle
-      </div>
-      <div className="lg:text-[9.5vw] text-[12vw] justify-center flex items-start uppercase lg:leading-[8vw] leading-[10vw]">
-        qui
-        <div className="h-[7vw] w-[16vw] rounded-full -mt-3 overflow-hidden ">
-          <Video />
-        </div>
-        génère
-      </div>
-      <div className="lg:text-[9.5vw] text-[12vw] justify-center flex items-center uppercase lg:leading-[8vw] leading-[10vw]">
-        la créativité
-      </div>
-    </div>
-  );
-};
+const HEADING_LINE =
+  "flex items-center justify-center text-[12vw] leading-[10vw] uppercase lg:text-[9.5vw] lg:leading-[8vw]";
 
-export default HomeHeroText;
+const VIDEO_CLASS =
+  "relative -mt-3 h-[7vw] w-[16vw] shrink-0 overflow-hidden rounded-full";
+
+export default function HomeHeroText() {
+  return (
+    <section
+      aria-labelledby="home-hero-heading"
+      className="mt-72 pt-5 text-center font-[font1] text-white lg:mt-0"
+    >
+      <h1 id="home-hero-heading" className="m-0 font-inherit font-normal">
+        <span className={`${HEADING_LINE} block`}>L&apos;étincelle</span>
+
+        <span className={`${HEADING_LINE} items-start`}>
+          <span>qui</span>
+
+          <span className={VIDEO_CLASS} aria-hidden="true">
+            <Video />
+          </span>
+
+          <span>génère</span>
+        </span>
+
+        <span className={`${HEADING_LINE} block`}>la créativité</span>
+      </h1>
+    </section>
+  );
+}
